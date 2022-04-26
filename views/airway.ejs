@@ -1,0 +1,132 @@
+
+<%- include ("partials/header") -%> 
+<%- include ("partials/which-child") -%> 
+
+<div class="container mt-5">
+
+  <div class="tabs is-boxed my-0">
+    <ul>
+      <li ><a href="/">Drugs</a></li>
+      <li class="is-active"><a href="/airway" id="airwayFluidsTab">Airway + Fluids</a></li>
+      <li><a href="/wetflag" id="wetflagTab">WETFLAG</a></li>
+    </ul>
+  </div>
+
+
+  <!-- start of main content -->
+
+  <div class="notification is-primary">
+  
+    <div class="columns">
+      <div class="column">
+
+
+        <!-- column 1 -->
+        <%- include ("partials/child-input") -%> 
+        <div class="box">
+          <table class="table is-fullwidth has-text-left">
+            <tr>
+               <th></th>
+               <th>Value</th>
+               <th>Units</th>
+            </tr>
+        
+            
+            <% for (let device of airwayDevices) { %>
+              <tr>
+               <td><%= device.name %></td>
+               <td> <%= device.formula %> </td>
+               <td> <%= device.units %></td>
+               
+               
+               <% } %>
+               
+           
+               <td> </td>
+            </tr>     
+
+         </table>
+
+         
+          
+        </div>
+        <div class="box">
+          <table class="table is-fullwidth has-text-left">
+            <tr>
+               <th></th>
+               <th>Value</th>
+               <th>Units</th>
+            </tr>
+        
+            
+            <% for (let o of observations) { %>
+              <tr>
+               <td><%= o.name %></td>
+               <td> <%= o.value %> </td>
+               <td> <%= o.units %></td>
+               
+               
+               <% } %>
+               
+           
+               <td> </td>
+            </tr>     
+
+         </table>
+       
+        
+        
+        </div>
+        
+
+      </div>
+      <div class="column">
+        <!-- column 2 -->
+        <div class="box">
+      
+
+
+          <table class="table is-fullwidth has-text-left">
+      <tr>
+               <th></th>
+               <th>Rate</th>
+               <th></th>
+            </tr>
+              <tr>
+               <td>Maintenance fluids</td>
+               <td> <%= maintenanceFluid %> </td>
+               <td>ml/h</td>
+               </tr>
+               <tr>
+                <td>2/3 Maintenance rate</td>
+                <td> <%= twoThirds %> </td>
+                <td>ml/h</td>
+                </tr>
+          
+         </table>
+        
+        </div>
+        <div class="box">
+          <figure class="image is-4by3">
+           
+            <embed class="has-ratio" src="pdfs/fluids.pdf" frameborder="0" allowfullscreen></em>
+          </figure>
+        </div>
+          <div class="box">
+            <figure class="image is-2by3">
+            
+              <embed class="has-ratio" src="/pdfs/potassium.pdf" frameborder="0" allowfullscreen></em>
+            </figure>
+          
+ 
+         </div>
+        
+      </div>
+    </div>
+    <%- include ("partials/footer") -%> 
+  </div>
+
+</div>
+
+<!-- end of main content -->
+

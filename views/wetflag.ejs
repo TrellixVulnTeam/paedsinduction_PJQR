@@ -1,0 +1,89 @@
+
+<%- include ("partials/header") -%> 
+<%- include ("partials/which-child") -%> 
+
+<div class="container mt-5">
+
+  <div class="tabs is-boxed my-0">
+    <ul>
+      <li ><a href="/">Drugs</a></li>
+      <li><a href="/airway" id="airwayFluidsTab">Airway + Fluids</a></li>
+      <li class="is-active"><a href="/wetflag" id="wetflagTab">WETFLAG</a></li>
+    </ul>
+  </div>  <!-- start of main content -->
+
+  <div class="notification is-primary">
+    
+    <div class="columns">
+      <div class="column">
+        <!-- column 1 -->
+        <%- include ("partials/child-input") -%> 
+        <div class="box">
+          <span class="has-text-danger">*Resus UK: for children between 1 and 10 years old</span>
+          <table class="table is-fullwidth has-text-left mt-2">
+
+          
+            <tr>
+               <th></th>
+               <th>Value</th>
+               <th>Units</th>
+            </tr>
+        
+            <% let i=0 %>
+            <% for (let parameter of parameters) { %>
+              <tr>
+               <td><%= parameter.name %></td>
+               <td> <%= parameter.formula %> </td>
+      
+               <td> <%=parameter.units %></td>
+               
+               <% } %>
+               
+           
+               <td> </td>
+            </tr>     
+            
+         </table>
+         
+          
+          <!-- <p>Weight (age+4) x 2</p>
+          <p>Energy 4J/kg</p>
+          <p>Tube diameter age/4+4</p>
+          <p>Tube length oral age/2+12; nasal age/2 +15</p> 
+          <p>Fluid 20ml/kg for medical, 10mg/kg for trauma</p>
+          <p>Lorazepam 0.1mg/kg</p>
+          <p>Adrenaline IV 0.1ml/kg of 1:10 000</p>
+          <p>Glucose 10% 2ml/kg</p> -->
+        
+        </div>
+        <div class="box">maybe a <a href="">link </a>to the WETFLAG calculations</div>
+        
+
+      </div>
+      <div class="column">
+        <!-- column 2 -->
+        <div class="box">
+          <figure class="image is-2by3">
+           
+            <embed class="has-ratio" src="/pdfs/ALS.pdf" frameborder="0" allowfullscreen></em>
+          </figure>
+        
+        </div>
+
+        <!-- <div class="box">
+          <figure class="image is-2by3">
+            <img src="images/ALS.png">
+            
+          </figure>
+        
+        </div> -->
+        
+      </div>
+    </div>
+    <%- include ("partials/footer") -%> 
+  </div>
+  
+</div>
+
+<!-- end of main content -->
+

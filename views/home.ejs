@@ -1,0 +1,224 @@
+
+<%- include ("partials/header") -%> 
+<%- include ("partials/which-child") -%> 
+<%- include ("partials/jump-to") -%> 
+<!-- tabs -->
+<div class="container">
+
+  
+  <div class="tabs is-boxed my-0 mt-3" >
+    <ul>
+      <li class="is-active"><a href="/">Drugs</a></li>
+      <li><a href="/airway" id="airwayFluidsTab">Airway + Fluids</a></li>
+      <li><a href="/wetflag" id="wetflagTab">WETFLAG</a></li>
+      
+    </ul>
+  </div>
+  <!--end tabs -->
+  
+   
+  
+      <!-- start of main content -->
+      
+      <div class="notification is-primary">
+     
+        <div class="columns">
+          <div class="column">
+            <!-- column 1 -->
+
+            <%- include ("partials/child-input") -%> 
+            
+
+           
+            
+              
+             
+
+             <!-- premeds -->
+
+              <div class="box">
+  <table class="table has-text-left">
+    <tr>
+       <th>Premed</th>
+       <th>Amount</th> 
+    </tr>
+
+    <% for (let premed of premeds) { %>
+      <tr>
+       <td><%= premed.name %></td>
+       <td><%= premed.amount %> <%=premed.units %></td>
+      </tr>    
+     <% } %>
+     
+     
+ </table>
+ 
+
+</div>
+
+<!-- emergency drugs -->
+<div class="box">
+  
+  <table class="table is-fullwidth has-text-left">
+    <tr>
+       <th>Drug</th>
+       <th>Amount</th>
+       <th>Volume (mls)</th>
+    </tr>
+ 
+    <% for (let e of emergencyDrugs) { %>
+     <tr>
+      <td><%= e.name %></td>
+       <td> <%= e.amount %> <%= e.units %></td>
+      
+       <td> <%= e.volume %> </td>
+     </tr>    
+    <% } %>
+ </table>
+
+
+</div>
+<!-- induction drugs-->
+
+<div class="box">
+  
+  <table class="table is-fullwidth has-text-left">
+    <tr>
+       <th>Drug</th>
+       <th>Amount</th>
+       
+       <th>Volume (mls)</th>
+    </tr>
+ 
+    <% for (let i of inductionDrugs) { %>
+      <tr>
+       <td><%= i.name %></td>
+        <td> <%= i.amount %> <%= i.units %></td>
+        <td> <%= i.volume %> </td>
+      </tr>    
+     <% } %>
+ </table>
+
+
+</div>
+            
+            
+<!-- antibiotics -->
+
+<div class="box">
+  
+  <table class="table has-text-left">
+    <tr>
+       <th>Drug</th>
+       <th></th>
+       <th></th>
+       <th>Amount</th>
+       
+       
+    </tr>
+ 
+    <% for (let abx of antibiotics) { %>
+     <tr>
+      <td><%= abx.name %></td>
+      <td></td>
+      <td></td>
+      <td> <%= abx.amount %>  <%= abx.units %></td>
+       
+     </tr>    
+    <% } %>
+ </table>
+
+
+</div>
+         
+<!-- antiemetics -->
+<div class="box">
+  
+  <table class="table is-fullwidth has-text-left">
+    <tr>
+       <th>Drug</th>
+       <th>Amount</th>
+       <th>Volume (mls)</th>
+    </tr>
+ 
+    <% for (let a of antiemetics) { %>
+      <tr>
+       <td><%= a.name %></td>
+        <td> <%= a.amount %> <%= a.units %></td>
+       
+        <td> <%= a.volume %> </td>
+      </tr>    
+     <% } %>
+      
+ </table>
+</div>
+
+
+<!-- analgesia -->
+<div class="box" id="analgesia">
+  
+  <table  class="table is-fullwidth is-size-7  has-text-left">
+    <tr>
+       <th>Drug</th>
+       <th>Amount</th>
+       <th>Volume (mls)</th>
+       <th>Frequency</th>
+    </tr>
+ 
+    <% for (let p of painkillers) { %>
+      <tr>
+       <td><%= p.name %></td>
+        <td> <%= p.amount %> <%= p.units %></td>
+        <td> <%= p.volume %> </td>
+        <td> <%= p.freq %> </td>
+      </tr>    
+  <% } %>
+      
+ </table>
+</div>
+
+<!-- PCA instructions -->
+<div class="box">
+<p id="analgesia-instructions" class="has-text-dark has-text-weight-bold">enter weight to get NCA/PCA morphine protocol</p>
+<figure class="image is-5by3 is-hidden" id="over50">
+  <embed class="has-ratio" src="pdfs/morphine-over50.pdf" frameborder="0" allowfullscreen></em>
+</figure>
+
+<figure class="image is-3by2 is-hidden" id="under50">
+  <embed class="has-ratio" src="pdfs/morphine-under50.pdf" frameborder="0" allowfullscreen></em>
+</figure>
+
+
+</div>
+
+
+
+</div>
+<!-- start of pictures -->
+
+          
+          <div class="column">
+            <!-- column 2 -->
+            <div class="box">
+              <img src="images/paracetamol-iv.png">
+              <img src="images/paracetamol-oral.png">
+              <img src="images/paracetamol-sticker.png">
+            </div>
+            
+          
+          
+
+           
+
+           
+          </div>
+          
+        
+        
+      </div>
+      <%- include ("partials/footer") -%> 
+    </div>
+
+    
+    <!-- end of main content -->
+    
